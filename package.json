@@ -1,0 +1,36 @@
+{
+  "name": "did-it-finish",
+  "version": "0.1.0",
+  "description": "Verifies PRs are actually done: tests, removed assertions, skips, stubs",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Rama Krishna Chavali",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rk-chavali/did-it-finish.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist --license licenses.txt",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "all": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@actions/core": "3.0.1",
+    "@actions/github": "9.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.13.6",
+    "@vercel/ncc": "0.45.0",
+    "eslint": "10.11.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.1",
+    "vitest": "5.0.1"
+  }
+}

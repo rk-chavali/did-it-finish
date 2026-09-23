@@ -1,0 +1,11 @@
+node_modules/
+coverage/
+*.log
+.env
+.env.*
+*.pem
+*.key
+CLAUDE.md
+.claude/
+.cursor/
+.remember/
