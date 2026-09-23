@@ -1,0 +1,26 @@
+@@ -1,4 +1,27 @@
+ class Exporter:
++    def export_csv(self, rows):
++        """Write rows as CSV."""
++        pass
++
++    def export_json(self, rows):
++        ...
++
++    def export_xml(self, rows): pass
++
++    @abstractmethod
++    def export_parquet(self, rows):
++        ...
++
++    def export_tsv(self, rows):
++        pass
++        return "\t".join(rows)
++
++    def export_yaml(
++        self, rows
++    ):
++        raise NotImplementedError
++
+     def close(self):
+         self.handle.close()

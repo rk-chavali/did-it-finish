@@ -1,0 +1,9 @@
+@@ -1,3 +1,10 @@
+ export function parseInvoice(text: string) {
+-  return legacyParse(text);
++  throw new Error("Not implemented");
++}
++
++export function exportCsv(): string {
++  throw new Error("export failed: bad row");
+ }

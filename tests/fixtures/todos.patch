@@ -1,0 +1,7 @@
+@@ -20,6 +20,9 @@ export async function refund(orderId: string) {
+   const order = await load(orderId);
++  // TODO: handle partial refunds
++  // FIXME: currency rounding is wrong for JPY
++  const todoList = [];
+   return issueRefund(order);
+ }

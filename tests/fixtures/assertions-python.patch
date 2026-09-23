@@ -1,0 +1,7 @@
+@@ -3,6 +3,6 @@ from shop.orders import place
+ def test_place_order():
+     order = place("sku-1", qty=2)
+-    assert order.qty == 2
+-    self.assertEqual(order.status, "placed")
++    assert order.qty == 2
++    assert order.status == "placed"
