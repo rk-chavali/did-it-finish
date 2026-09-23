@@ -20,6 +20,8 @@ too, just less often. `did-it-finish` reads the diff and posts one sticky commen
 > ### Stubs added
 > - `src/invoice.ts:2` stub: `throw new Error("Not implemented");`
 
+See a real run on [a demo pull request](https://github.com/rk-chavali/did-it-finish/pull/1).
+
 ## What it checks
 
 Everything is computed from the pull request's base...head diff, as returned by the GitHub API.
