@@ -1,0 +1,24 @@
+# Copy to .github/workflows/did-it-finish.yml
+name: did-it-finish
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write # to post the sticky comment
+
+jobs:
+  did-it-finish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - run: npm ci
+      - uses: rk-chavali/did-it-finish@v1
+        with:
+          test-command: npm test
+          fail-on: tests-failed, tests-deleted, stubs-added, unchecked-tasks
