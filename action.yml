@@ -1,0 +1,38 @@
+name: did-it-finish
+description: Verifies a pull request is actually done. Flags deleted tests, removed assertions, new skips, stubs, TODOs, and unchecked tasks, and can run your tests.
+author: Rama Krishna Chavali
+branding:
+  icon: check-square
+  color: green
+
+inputs:
+  github-token:
+    description: Token used to read the pull request and post the comment. Needs pull-requests write to comment.
+    default: ${{ github.token }}
+  test-command:
+    description: Optional shell command to run the tests, for example "npm test". The result and an output tail go in the comment.
+    default: ""
+  fail-on:
+    description: Finding types that fail the check, separated by commas or spaces. "any", "none", or any of tests-failed, tests-deleted, stubs-added, unchecked-tasks, assertions-removed, tests-skipped, todos-added.
+    default: tests-failed
+  test-timeout-minutes:
+    description: Kill the test command after this many minutes.
+    default: "30"
+  test-output-lines:
+    description: Lines of test output to include in the comment. 0 leaves the output out.
+    default: "40"
+  comment:
+    description: Post or update the sticky PR comment. The result always goes to the job summary.
+    default: "true"
+
+outputs:
+  verdict:
+    description: Done, Probably done, or Not done.
+  finding-count:
+    description: Number of findings.
+  findings:
+    description: Findings as a JSON array of {type, message, file, line}.
+
+runs:
+  using: node24
+  main: dist/index.js
